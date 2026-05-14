@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@layer components {
+  .main-page {
+    @apply bg-white min-h-screen p-2; 
+  }
+
+  .outer-div {
+    @apply flex flex-col gap-3 py-3 px-1.5 border shadow-sm rounded-md border-gray-400/50 border-t-4 border-t-cyan-900; 
+  }
+
+  .survey-text {
+    @apply text-sm text-black font-semibold; 
+  }
+
+  .buttons-container {
+    @apply flex justify-evenly text-gray-500 text-xs; 
+  }
+
+  .button-preset {
+    @apply border text-xs rounded-md px-2 py-1; 
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
