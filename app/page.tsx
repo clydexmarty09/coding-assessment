@@ -5,7 +5,7 @@ export default function Home() {
 
   const [isLoading, setIsLoading] = useState(false); 
   const [error, setError] = useState(""); 
-  
+
   const [selectedAnswers, setSelectedAnswers] = useState <{
     Q1: string | null, 
     Q2: string | null, 
@@ -19,7 +19,14 @@ export default function Home() {
   const submitAnswers =  async (e: React.SyntheticEvent<HTMLFormElement>) => {
    
     e.preventDefault(); // prevents page from refreshing 
+
+    if(!selectedAnswers.Q1 || !selectedAnswers.Q2 || !selectedAnswers.Q3) {
+      setError("Please answer all questions!"); 
+      return; 
+    }
+    
     setIsLoading(true); 
+    setError(""); 
 
     try {
 
@@ -34,8 +41,14 @@ export default function Home() {
       
       }); 
 
+      if(!res.ok) {
+        setError("Invalid input"); 
+        return; 
+      }
+
       setSelectedAnswers({Q1: null, Q2: null, Q3: null});
       console.log(selectedAnswers); 
+    
 
     } catch (e)  {
      
@@ -69,7 +82,7 @@ export default function Home() {
               }
               className={`button-preset ${selectedAnswers.Q1 === "1"? 'border-green-700 border-3' : 'border-gray-600'}`}
               >
-                Very Innacurate 
+                Very Inacurate 
               </button>
 
               <button
@@ -79,7 +92,7 @@ export default function Home() {
               }
               className={`button-preset ${selectedAnswers.Q1 ==="2" ? 'border-green-700 border-3' : 'border-gray-600'}`}
              >
-                Moderately Innacurate
+                Moderately Inacurate
               </button>
 
               <button
@@ -89,7 +102,7 @@ export default function Home() {
               }
               className={`button-preset ${selectedAnswers.Q1 === "3" ? 'border-green-700 border-3' : 'border-gray-600'}`}
               >
-                Neither Accurate Nor Innacurate
+                Neither Accurate Nor Inacurate
               </button>
 
               <button
@@ -127,7 +140,7 @@ export default function Home() {
               }
               className={`button-preset ${selectedAnswers.Q2 === "1"? 'border-green-700 border-3' : 'border-gray-600'}`}
               >
-                Very Innacurate 
+                Very Inacurate 
               </button>
 
               <button
@@ -137,7 +150,7 @@ export default function Home() {
               }
               className={`button-preset ${selectedAnswers.Q2 === "2"? 'border-green-700 border-3' : 'border-gray-600'}`}
               >
-                Moderately Innacurate
+                Moderately Inacurate
               </button>
 
               <button
@@ -147,7 +160,7 @@ export default function Home() {
               }
               className={`button-preset ${selectedAnswers.Q2 === "3"? 'border-green-700 border-3' : 'border-gray-600'}`}
               >
-                Neither Accurate Nor Innacurate
+                Neither Accurate Nor Inacurate
               </button>
 
               <button
@@ -183,7 +196,7 @@ export default function Home() {
               }
               className={`button-preset ${selectedAnswers.Q3 === "1"? 'border-green-700 border-3' : 'border-gray-600'}`}
               >
-                Very Innacurate 
+                Very Inacurate 
               </button>
 
               <button
@@ -193,7 +206,7 @@ export default function Home() {
               }
               className={`button-preset ${selectedAnswers.Q3 === "2"? 'border-green-700 border-3' : 'border-gray-600'}`}
               >
-                Moderately Innacurate
+                Moderately Inacurate
               </button>
 
               <button
@@ -203,7 +216,7 @@ export default function Home() {
               }
               className={`button-preset ${selectedAnswers.Q3 ==="3"? 'border-green-700 border-3' : 'border-gray-600'}`}
               >
-                Neither Accurate Nor Innacurate
+                Neither Accurate Nor Inacurate
               </button>
 
               <button
