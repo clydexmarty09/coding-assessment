@@ -243,6 +243,7 @@ export default function Home() {
           </div>
        
           <button
+          disabled={isLoading}
           className="text-white rounded-md text-sm bg-gray-500 p-1 w-20 hover:scale-105 active:scale-95"
   
           > 
