@@ -1,6 +1,6 @@
 ## I deployed a fully working version using vercel here
 
-Link: https://coding-assessment-6v0z7fkdr-clydexmarty09s-projects.vercel.app/
+Link: https://coding-assessment-two.vercel.app/
 
 # Project setup
 
