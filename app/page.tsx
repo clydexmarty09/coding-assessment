@@ -53,7 +53,7 @@ export default function Home() {
     } catch (e)  {
      
       console.error(e)
-      setError("Cannot fetch data"); 
+      setError("Unable to set answers. Please try again."); 
 
       return; 
 
